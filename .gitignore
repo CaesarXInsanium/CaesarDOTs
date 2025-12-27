@@ -1,0 +1,28 @@
+*
+!*/
+# track this file
+!.gitignore
+# whitelist everything in ./config/
+!alacritty/
+!bat/
+!bspwm/
+!helix/
+!hypr/
+!kak/
+!kitty/
+!lem/
+!nu/
+!qBittorrent/
+!qutebrowser/
+!river/
+!strawberry/
+!waybar/
+!wezterm/
+!xfce4/
+!xonsh/
+!zellij/
+!starship.toml
+!konsolerc
+!dolphinrc
+
+
