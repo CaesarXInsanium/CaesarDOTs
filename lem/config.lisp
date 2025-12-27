@@ -1,0 +1,1 @@
+(:ISEARCH-PREVIOUS-STRING "Add hook" :COLOR-THEME "solarized-light")

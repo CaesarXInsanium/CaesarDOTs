@@ -1,0 +1,2 @@
+
+("(documentation-describe-bindings #t)" "(defun hell (name) (print \"Hello World!\" name))" "(hell \"Hees\")" "(print \"Hello World\")") 

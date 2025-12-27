@@ -1,0 +1,30 @@
+[language-server]
+racket-lsp = { command = "racket", args = ["-l", "racket-langserver"] }
+sourcekit-lsp = { command = "sourcekit-lsp" }
+guile-lsp = {command = "/home/cxi/.guix-profile/bin/guile-lsp-server"}
+
+[[language]]
+name = "markdown"
+# language-servers = { command = "ltex-ls", args = ["--server-type=StandardStream"]}
+formatter = {command = "prettier", args = ["--parser", "markdown"]}
+
+[[language]]
+name = "org"
+
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+[[language]]
+name = "scheme"
+# scope = "source.scheme"
+file-types = ["scm"]
+# installed with raco pkg install fmt
+formatter = {command = "raco", args = ["fmt", "--width", "80", "--indent", "2"]}
+auto-format = true
+language-servers  = ["guile-lsp"]
+
+[[language]]
+name = "nim"
+language-servers = ["nimlangserver"]

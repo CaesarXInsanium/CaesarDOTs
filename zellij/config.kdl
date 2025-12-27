@@ -1,0 +1,375 @@
+// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+// LaunchOrFocusPlugin
+keybinds {
+	normal clear-defaults=true{
+    bind "Esc" { SwitchToMode "locked"; }
+    bind "Ctrl g" { SwitchToMode "locked"; }
+    // write real C-g to terminal, pass to emacs
+    bind "g" { Write 7; SwitchToMode "locked"; }
+		bind "m" { SwitchToMode "move"; }
+    bind "p" { SwitchToMode "pane"; }
+		bind "Ctrl p" {SwitchToMode "renamepane"; }
+
+		bind "T" { SwitchToMode "tab"; }
+		bind "Ctrl t" { SwitchToMode "tab"; }
+		bind "t" { NewTab; SwitchToMode "Locked";}
+
+    bind "r" { SwitchToMode "resize"; }
+		bind "Ctrl /" { SwitchToMode "search"; }
+		bind "Alt /" { SwitchToMode "entersearch"; }
+		bind "o" { SwitchToMode "session"; }
+		bind "Enter" { ToggleFloatingPanes; SwitchToMode "Locked"; }
+		// switching panes
+		bind "h" { MoveFocus "Left"; SwitchToMode "locked"; }
+		bind "j" { MoveFocus "Down"; SwitchToMode "locked"; }
+		bind "k" { MoveFocus "Up"; SwitchToMode "locked"; }
+		bind "l" { MoveFocus "Right"; SwitchToMode "locked"; }
+
+		bind "H" { NewPane "Left"; SwitchToMode "locked"; }
+		bind "J" { NewPane "Down"; SwitchToMode "locked"; }
+		bind "K" { NewPane "Up"; SwitchToMode "locked"; }
+		bind "L" { NewPane "Right"; SwitchToMode "locked"; }
+
+		bind "s" { EditScrollback; SwitchToMode "locked";}
+		bind "S" { SwitchToMode "scroll";}
+		bind "f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+    bind "a" { TogglePaneFrames; SwitchToMode "locked"; }
+		bind "Ctrl s" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+		// switching tabs
+		bind "1" { GoToTab 1; SwitchToMode "locked"; }
+		bind "2" { GoToTab 2; SwitchToMode "locked"; }
+		bind "3" { GoToTab 3; SwitchToMode "locked"; }
+		bind "4" { GoToTab 4; SwitchToMode "locked"; }
+		bind "5" { GoToTab 5; SwitchToMode "locked"; }
+		bind "6" { GoToTab 6; SwitchToMode "locked"; }
+		bind "7" { GoToTab 7; SwitchToMode "locked"; }
+		bind "8" { GoToTab 8; SwitchToMode "locked"; }
+		bind "9" { GoToTab 9; SwitchToMode "locked"; }
+		// cycle tab focus
+		bind "Tab" { ToggleTab; SwitchToMode "locked"; }
+	}
+  locked clear-defaults=true {
+		bind "Ctrl g" { SwitchToMode "Normal"; }
+  }
+  resize {
+		bind "Esc" { SwitchToMode "locked"; }
+    bind "h" "Left" { Resize "Left"; }
+    bind "j" "Down" { Resize "Down"; }
+    bind "k" "Up" { Resize "Up"; }
+    bind "l" "Right" { Resize "Right"; }
+    bind "=" "+" { Resize "Increase"; }
+    bind "-" { Resize "Decrease"; }
+  }
+  pane {
+		bind "Esc" { SwitchToMode "locked"; }
+		bind "j" { NewPane "Down"; SwitchToMode "locked"; }
+		bind "k" { NewPane "Up"; SwitchToMode "locked"; }
+		bind "h" { NewPane "Left"; SwitchToMode "locked"; }
+		bind "l" { NewPane "Right"; SwitchToMode "locked"; }
+//		bind "x" { CloseFocus; SwitchToMode "locked"; }
+		bind "f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+		bind "p" { ToggleFloatingPanes; SwitchToMode "locked"; }
+		// switch pane between floating and tiled
+		bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+  }
+  move {
+		bind "Esc" { SwitchToMode "locked"; }
+		bind "n" "Tab" { MovePane; }
+		bind "h" "Left" { MovePane "Left"; }
+		bind "j" "Down" { MovePane "Down"; }
+		bind "k" "Up" { MovePane "Up"; }
+		bind "l" "Right" { MovePane "Right"; }
+  }
+	tab {
+		bind "Esc" { SwitchToMode "locked"; }
+		bind "h" "Left" "Up" "k" { GoToPreviousTab; }
+		bind "l" "Right" "Down" "j" { GoToNextTab; }
+		bind "n" { NewTab; SwitchToMode "locked"; }
+		bind "x" { CloseTab; SwitchToMode "locked"; }
+		bind "s" { ToggleActiveSyncTab; SwitchToMode "locked"; }
+    bind "Ctrl h" { MoveTab "Left";}
+    bind "Ctrl l" { MoveTab "Right";}
+  }
+	scroll {
+		bind "Esc" { SwitchToMode "locked"; }
+		bind "e" { EditScrollback; SwitchToMode "locked"; }
+		bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
+		bind "Ctrl c" { ScrollToBottom; SwitchToMode "locked"; }
+		bind "j" "Down" { ScrollDown; }
+		bind "k" "Up" { ScrollUp; }
+		bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
+		bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+		bind "d" { HalfPageScrollDown; }
+		bind "u" { HalfPageScrollUp; }
+	}
+	search {
+		bind "Esc" { SwitchToMode "locked"; }
+		bind "Ctrl c" { ScrollToBottom; SwitchToMode "locked"; }
+		bind "j" "Down" { ScrollDown; }
+		bind "k" "Up" { ScrollUp; }
+		bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
+		bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+		bind "d" { HalfPageScrollDown; }
+		bind "u" { HalfPageScrollUp; }
+		bind "n" { Search "down"; }
+		bind "p" { Search "up"; }
+		bind "c" { SearchToggleOption "CaseSensitivity"; }
+		bind "w" { SearchToggleOption "Wrap"; }
+		bind "o" { SearchToggleOption "WholeWord"; }
+	}
+	entersearch {
+		bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
+		bind "Enter" { SwitchToMode "Search"; }
+	}
+	renametab {
+		bind "Ctrl c" { SwitchToMode "Normal"; }
+		bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+	}
+	renamepane {
+		bind "Ctrl c" { SwitchToMode "Normal"; }
+		bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
+	}
+	session {
+		bind "Ctrl o" { SwitchToMode "Normal"; }
+		bind "Ctrl s" { SwitchToMode "Scroll"; }
+		bind "d" { Detach; }
+    bind "Q" {Quit;}
+	}
+	tmux {
+		bind "[" { SwitchToMode "Scroll"; }
+		bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
+		bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
+		bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
+		bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+		bind "c" { NewTab; SwitchToMode "Normal"; }
+		bind "," { SwitchToMode "RenameTab"; }
+		bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
+		bind "n" { GoToNextTab; SwitchToMode "Normal"; }
+		bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
+		bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
+		bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
+		bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
+		bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+		bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+		bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+		bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+		bind "o" { FocusNextPane; }
+		bind "d" { Detach; }
+	}
+	shared_except "locked" {
+		bind "Ctrl q" { ToggleFloatingPanes; }
+	}
+	shared_except "normal" "locked" {
+		bind "Enter" "Esc" { SwitchToMode "Normal"; }
+	}
+    shared_except "pane" "locked" {
+		bind "Ctrl p" { SwitchToMode "Pane"; }
+	}
+    shared_except "resize" "locked" {
+		bind "Ctrl n" { SwitchToMode "Resize"; }
+	}
+    shared_except "scroll" "locked" {
+		bind "Ctrl s" { SwitchToMode "Scroll"; }
+	}
+    shared_except "session" "locked" {
+		bind "Ctrl o" { SwitchToMode "Session"; }
+	}
+    shared_except "tab" "locked" {
+		bind "Ctrl t" { SwitchToMode "Tab"; }
+	}
+}
+
+
+on_force_close "detach"
+
+simplified_ui true
+default_layout "normal"
+pane_frames false
+hide_session_name true
+
+default_mode "locked"
+default_shell "bash"
+
+themes {
+    cyber-noir {
+        bg "#0b0e1a" // Dark Blue
+        fg "#91f3e4" // Teal
+        red "#ff578d" // Hot Pink
+        green "#00ff00" // Neon Green
+        blue "#3377ff" // Electric Blue
+        yellow "#ffd700" // Cyber Yellow
+        magenta "#ff00ff" // Neon Purple
+        orange "#ff7f50" // Cyber Orange
+        cyan "#00e5e5" // Cyan
+        black "#000000" // Black
+        white "#91f3e4" // Teal
+    }
+
+    blade-runner {
+        bg "#1a1a1a" // Dark Gray
+        fg "#2bbff4" // Neon Blue
+        red "#ff355e" // Neon Pink
+        green "#00ff00" // Neon Green
+        blue "#00d9e3" // Electric Blue
+        yellow "#ffe600" // Neon Yellow
+        magenta "#ff00ff" // Neon Purple
+        orange "#ff8c0d" // Cyber Orange
+        cyan "#00e5e5" // Cyan
+        black "#000000" // Black
+        white "#ffffff" // White
+    }
+
+    retro-wave {
+        bg "#1a1a1a" // Dark Gray
+        fg "#ff9900" // Retro Orange
+        red "#ff355e" // Neon Pink
+        green "#00ff00" // Neon Green
+        blue "#00d9e3" // Electric Blue
+        yellow "#ffe600" // Neon Yellow
+        magenta "#ff00ff" // Neon Purple
+        orange "#ff6611" // Retro Red
+        cyan "#00e5e5" // Cyan
+        black "#000000" // Black
+        white "#ffffff" // White
+    }
+    nord {
+        fg 216 222 233 // #D8DEE9
+        bg 46 52 64 // #2E3440
+        black 59 66 82 // #3B4252
+        red 191 97 106 // #BF616A
+        green 163 190 140 // #A3BE8C
+        yellow 235 203 139 // #EBCB8B
+        blue 129 161 193 // #81A1C1
+        magenta 180 142 173 // #B48EAD
+        cyan 136 192 208 // #88C0D0
+        white 229 233 240 // #E5E9F0
+        orange 208 135 112 // #D08770
+    }
+    dracula {
+        fg 248 248 242
+        bg 40 42 54
+        red 255 85 85
+        green 80 250 123
+        yellow 241 250 140
+        blue 98 114 164
+        magenta 255 121 198
+        orange 255 184 108
+        cyan 139 233 253
+        black 0 0 0
+        white 255 255 255
+    }
+  catppuccin-mocha {
+    bg "#585b70" // Surface2
+    fg "#cdd6f4"
+    red "#f38ba8"
+    green "#a6e3a1"
+    blue "#89b4fa"
+    yellow "#f9e2af"
+    magenta "#f5c2e7" // Pink
+    orange "#fab387" // Peach
+    cyan "#89dceb" // Sky
+    black "#181825" // Mantle
+    white "#cdd6f4"
+  }
+  tokyo-night {
+        fg 169 177 214
+        bg 31 30 51
+        black 56 62 90
+        red 249 51 87
+        green 158 206 106
+        yellow 224 175 104
+        blue 122 162 247
+        magenta 187 154 247
+        cyan 42 195 222
+        white 192 202 245
+        orange 255 158 100
+    }
+    gruvbox-dark {
+        fg 213 196 161
+        bg 40 40 40
+        black 60 56 54
+        red 204 36 29
+        green 152 151 26
+        yellow 215 153 33
+        blue 69 133 136
+        magenta 177 98 134
+        cyan 104 157 106
+        white 251 241 199
+        orange 214 93 14
+    } 
+    kanagawa {
+        fg "#DCD7BA"
+        bg "#1F1F28"
+        red "#C34043"
+        green "#76946A"
+        yellow "#FF9E3B"
+        blue "#7E9CD8"
+        magenta "#957FB8"
+        orange "#FFA066"
+        cyan "#7FB4CA"
+        black "#16161D"
+        white "#DCD7BA"
+    }
+      solarized-light {
+        fg 101 123 131
+        bg 253 246 227
+        black 7 54 66
+        red 220 50 47
+        green 133 153 0
+        yellow 181 137 0
+        blue 38 139 210
+        magenta 211 54 130
+        cyan 42 161 152
+        white 238 232 213
+        orange 203 75 22
+    }
+      solarized-dark {
+        fg 253 246 227
+        bg 0 43 54
+        black 7 54 66
+        red 220 50 47
+        green 133 153 0
+        yellow 181 137 0
+        blue 38 139 210
+        magenta 211 54 130
+        cyan 42 161 152
+        white 238 232 213
+        orange 203 75 22
+    }
+}
+
+theme "solarized-dark"
+
+mouse_mode true
+
+scroll_buffer_size 10666
+
+// copy_command "xclip -selection clipboard" // x11
+// copy_command "wl-copy"                    // wayland
+// copy_command "pbcopy"                     // osx
+
+// copy_clipboard "primary"
+
+// Enable or disable automatic copy (and clear) of selection when releasing mouse
+// Default: true
+//
+// copy_on_select false
+
+// Path to the default editor to use to edit pane scrollbuffer
+// Default: $EDITOR or $VISUAL
+//
+scrollback_editor "/usr/bin/vim"
+// When attaching to an existing session with other users,
+// should the session be mirrored (true)
+// or should each user have their own cursor (false)
+// Default: false
+//
+// mirror_session true
+
+// The folder in which Zellij will look for layouts
+//
+// layout_dir "/path/to/my/layout_dir"
+
+// The folder in which Zellij will look for themes
+//
+// theme_dir "/path/to/my/theme_dir"

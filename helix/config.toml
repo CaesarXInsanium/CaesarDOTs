@@ -1,0 +1,24 @@
+theme="solarized_dark"
+
+[editor]
+line-number = "relative"
+cursor-shape.insert = "bar"
+cursor-shape.select = "underline"
+shell = ["bash", "-c"]
+gutters  = ["diagnostics", "line-numbers"]
+bufferline = "multiple"
+
+[editor.indent-guides]
+render = true
+character = "|"
+
+[editor.lsp]
+# annoying virtual text
+display-inlay-hints=false
+
+[keys.normal."C-x"]
+r = ":config-reload"
+c = ":run-shell-command cargo build"
+C = ":run-shell-command cargo clean"
+m = ":run-shell-command make"
+M = ":run-shell-command make clean"

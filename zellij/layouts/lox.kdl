@@ -1,0 +1,65 @@
+layout {
+    name "Lox"
+
+    // Java Implementation
+    tab cwd="~/Projects/Java/Jlox" hide_floating_panes=true focus=true {
+      pane size=1 borderless=true {
+          plugin location="zellij:tab-bar"
+      }
+      pane {
+        name "jlox"
+        command "/home/cxi/.prefix/bin/nvim"
+        args "-S" ".session"
+        focus true
+      }
+      floating_panes {
+        pane {
+          cwd "~/Projects/Java/Jlox"
+          command "make"
+          start_suspended true
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:status-bar"
+      }
+    }
+    // Scheme implementation
+    tab cwd="~/Projects/Scheme/glox" hide_floating_panes=true {
+      pane size=1 borderless=true {
+          plugin location="zellij:tab-bar"
+      }
+      pane {
+        name "jlox"
+        command "/home/cxi/.prefix/bin/nvim"
+        args "-S" ".session"
+      }
+      floating_panes {
+        pane {
+          cwd "~/Projects/Scheme/glox"
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:status-bar"
+      }
+    }
+    // Nim Implementation
+    tab cwd="~/Projects/Nim/nimlox" hide_floating_panes=true {
+      pane size=1 borderless=true {
+          plugin location="zellij:tab-bar"
+      }
+      pane {
+        name "jlox"
+        command "/home/cxi/.prefix/bin/nvim"
+        args "-S" ".session"
+      }
+      floating_panes {
+        pane {
+          cwd "~/Projects/Nim/nimlox"
+        }
+      }
+      pane size=1 borderless=true {
+          plugin location="zellij:status-bar"
+      }
+    }
+}
+
